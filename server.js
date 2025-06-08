@@ -5,8 +5,10 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+const BASE_URL = "/momo-app"
+
 // Serve static files from the public directory
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(BASE_URL, express.static(path.join(__dirname, 'public')));
 
 // Connect to SQLite database
 const db = new sqlite3.Database(path.join(__dirname, 'momo_transactions.db'), (err) => {
@@ -18,7 +20,7 @@ const db = new sqlite3.Database(path.join(__dirname, 'momo_transactions.db'), (e
 });
 
 // API endpoint to get all transactions with optional date filtering
-app.get('/api/transactions', (req, res) => {
+app.get(BASE_URL + '/api/transactions', (req, res) => {
   const { from, to } = req.query;
   
   let query = 'SELECT * FROM transactions';
@@ -53,7 +55,7 @@ app.get('/api/transactions', (req, res) => {
 });
 
 // API endpoint to get transaction types summary with optional date filtering
-app.get('/api/summary', (req, res) => {
+app.get(BASE_URL + '/api/summary', (req, res) => {
   const { from, to } = req.query;
   
   let query = 'SELECT transaction_type, COUNT(*) as count, SUM(amount) as total FROM transactions';

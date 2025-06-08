@@ -4,8 +4,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const thirtyDaysAgo = new Date(today);
     thirtyDaysAgo.setDate(today.getDate() - 30);
     
-    document.getElementById('dateFrom').valueAsDate = thirtyDaysAgo;
-    document.getElementById('dateTo').valueAsDate = today;
+    // document.getElementById('dateFrom').valueAsDate = thirtyDaysAgo;
+    // document.getElementById('dateTo').valueAsDate = today;
     
     // Fetch and display transactions
     fetchTransactions();
@@ -37,7 +37,7 @@ async function fetchTransactions() {
         const dateFrom = document.getElementById('dateFrom').value;
         const dateTo = document.getElementById('dateTo').value;
         
-        const url = new URL('/api/transactions', window.location.origin);
+        const url = new URL('/momo-app/api/transactions', window.location.origin);
         if (dateFrom) url.searchParams.append('from', dateFrom);
         if (dateTo) url.searchParams.append('to', dateTo);
         
