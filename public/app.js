@@ -1,16 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
-    // Initialize date pickers with default values (last 30 days)
-    const today = new Date();
-    const thirtyDaysAgo = new Date(today);
-    thirtyDaysAgo.setDate(today.getDate() - 30);
-    
-    // document.getElementById('dateFrom').valueAsDate = thirtyDaysAgo;
-    // document.getElementById('dateTo').valueAsDate = today;
-    
     // Fetch and display transactions
     fetchTransactions();
     
-    // Setup event listeners for filtering
+    // Setup filter stuff
     document.getElementById('searchInput').addEventListener('input', filterTransactions);
     document.getElementById('typeFilter').addEventListener('change', filterTransactions);
     document.getElementById('applyFilters').addEventListener('click', () => {
@@ -83,7 +75,7 @@ function displaySummary(transactions) {
         { title: 'Total Incoming', value: formatAmount(totalIncoming) + ' RWF' },
         { title: 'Total Outgoing', value: formatAmount(totalOutgoing) + ' RWF' },
         { title: 'Total Fees', value: formatAmount(totalFees) + ' RWF' },
-        { title: 'Net Balance', value: formatAmount(totalIncoming - totalOutgoing) + ' RWF' },
+        // { title: 'Net Balance', value: formatAmount(totalIncoming - totalOutgoing) + ' RWF' },
     ];
     
     summaryItems.forEach(item => {
