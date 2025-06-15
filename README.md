@@ -105,5 +105,5 @@ This project is licensed under the MIT License - see below for details:
 ## Credits
 
 - **Mohamed Dahab** - *Development and maintenance*
-- **Claude** - *Assisted in code direction, documentation and small help with UI at the beginning*
+- **Claude** - *Assisted in code direction, documentation*
 - **African Leadership University** - *Project support and resources*
