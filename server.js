@@ -3,7 +3,7 @@ const sqlite3 = require('sqlite3').verbose();
 const path = require('path');
 
 const app = express();
-const port = 3000;
+const port = 5000;
 
 const BASE_URL = "/momo-app"
 
@@ -61,8 +61,5 @@ app.listen(port, () => {
 
 // Close database connection on process termination
 process.on('SIGINT', () => {
-  db.close(() => {
-    console.log('Database connection closed.');
-    process.exit(0);
-  });
+  db.close(() => process.exit(0));
 });

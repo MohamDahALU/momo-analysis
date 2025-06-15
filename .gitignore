@@ -1,2 +1,5 @@
 node_modules
 run_refresh.sh
+.gitignore
+VIDEONOTES.md
+report.md
